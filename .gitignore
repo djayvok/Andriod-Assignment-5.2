@@ -1,0 +1,156 @@
+Output : 
+
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="in.wptrafficanalyzer.actionbarmenu"
+    android:versionCode="1"
+    android:versionName="1.0" >
+ 
+    <uses-sdk android:minSdkVersion="14" />
+ 
+    <application
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name" >
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:uiOptions="splitActionBarWhenNarrow"
+        >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+ 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+ 
+</manifest>
+
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+ 
+    <string name="hello">MainActivity</string>
+    <string name="app_name">Options Menu</string>
+ 
+    <string name="phone">Phone</string>
+    <string name="computer">Computer</string>
+    <string name="gamepad">Gamepad</string>
+ 
+    <string name="camera">Camera</string>
+    <string name="video">Video</string>
+ 
+    <string name="email">EMail</string>
+ 
+</resources>
+
+
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item
+        android:id="@+id/phone"
+        android:title="@string/phone"
+        android:icon="@drawable/phone"
+        android:showAsAction="ifRoom|withText"
+    />
+ 
+    <item
+        android:id="@+id/computer"
+        android:title="@string/computer"
+        android:icon="@drawable/computer"
+        android:showAsAction="ifRoom|withText"
+    />
+ 
+    <item
+        android:id="@+id/gamepad"
+        android:title="@string/gamepad"
+        android:icon="@drawable/gamepad"
+        android:showAsAction="ifRoom|withText"
+    />
+ 
+    <item
+        android:id="@+id/camera"
+        android:title="@string/camera"
+        android:icon="@drawable/camera"
+        android:showAsAction="ifRoom|withText"
+    />
+ 
+    <item
+        android:id="@+id/video"
+        android:title="@string/video"
+        android:icon="@drawable/video"
+        android:showAsAction="ifRoom|withText"
+    />
+ 
+    <item
+        android:id="@+id/email"
+        android:title="@string/email"
+        android:icon="@drawable/email"
+        android:showAsAction="ifRoom|withText"
+    />
+</menu>
+
+
+
+package in.dj.actionbarmenu;
+ 
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.widget.Toast;
+ 
+public class MainActivity extends Activity {
+     
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.main);
+    }
+ 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.items, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+ 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+ 
+        super.onOptionsItemSelected(item);
+ 
+        switch(item.getItemId()){
+            case R.id.phone:
+                Toast.makeText(getBaseContext(), "You selected Phone", Toast.LENGTH_SHORT).show();
+                break;
+ 
+            case R.id.computer:
+                Toast.makeText(getBaseContext(), "You selected Computer", Toast.LENGTH_SHORT).show();
+                break;
+ 
+            case R.id.gamepad:
+                Toast.makeText(getBaseContext(), "You selected Gamepad", Toast.LENGTH_SHORT).show();
+                break;
+ 
+            case R.id.camera:
+                Toast.makeText(getBaseContext(), "You selected Camera", Toast.LENGTH_SHORT).show();
+                break;
+ 
+            case R.id.video:
+                Toast.makeText(getBaseContext(), "You selected Video", Toast.LENGTH_SHORT).show();
+                break;
+ 
+            case R.id.email:
+                Toast.makeText(getBaseContext(), "You selected EMail", Toast.LENGTH_SHORT).show();
+                break;
+ 
+        }
+        return true;
+ 
+    }
+}
